@@ -1,0 +1,78 @@
+# Outlit MCP
+
+Outlit is the real-time understanding of every customer, the infrastructure agents use to automate customer operations.
+
+This repository is the public discovery pointer for the hosted Outlit remote MCP server. It does not contain the server implementation. Canonical runtime metadata is served from Outlit-owned domains so MCP clients, registries, and crawlers have one source of truth.
+
+## Connect
+
+Use the workspace-specific URL shown in Outlit Settings > CLI & MCP:
+
+```text
+https://mcp.outlit.ai/w/<workspace-slug>/mcp
+```
+
+The shared discovery endpoint is:
+
+```text
+https://mcp.outlit.ai/mcp
+```
+
+Remote MCP clients authenticate with OAuth. The MCP OAuth metadata is published at:
+
+- Protected resource metadata: https://mcp.outlit.ai/.well-known/oauth-protected-resource/mcp
+- Authorization server metadata: https://clerk.outlit.ai/.well-known/oauth-authorization-server
+
+## Discovery
+
+- MCP server card: https://mcp.outlit.ai/.well-known/mcp/server-card.json
+- MCP registry metadata: https://mcp.outlit.ai/.well-known/mcp/server.json
+- Agentic Resource Discovery catalog: https://outlit.ai/.well-known/ai-catalog.json
+- API catalog: https://outlit.ai/.well-known/api-catalog
+- OpenAPI spec: https://docs.outlit.ai/openapi.json
+- MCP docs: https://docs.outlit.ai/ai-integrations/mcp
+- LLM resource index: https://outlit.ai/llms.txt
+
+The official MCP Registry package name is `ai.outlit/outlit`.
+
+## Tools
+
+The hosted server exposes customer context tools for agents, including:
+
+- `outlit_list_customers`
+- `outlit_list_users`
+- `outlit_list_workspace_users`
+- `outlit_get_customer`
+- `outlit_get_timeline`
+- `outlit_search_customer_context`
+- `outlit_list_facts`
+- `outlit_get_fact`
+- `outlit_get_source`
+- `outlit_list_sources`
+- `outlit_query`
+- `outlit_schema`
+- `outlit_send_notification`
+
+The server also exposes read-only SQL views for `activity`, `customers`, `users`, and `revenue`.
+
+## Skills
+
+Install the official Outlit skills from the public skills repository:
+
+```bash
+npx skills add OutlitAI/outlit-agent-skills --skill outlit --skill outlit-sdk
+```
+
+- Outlit skill: https://skills.sh/outlitai/outlit-agent-skills/outlit
+- Outlit SDK skill: https://skills.sh/outlitai/outlit-agent-skills/outlit-sdk
+- Skills source: https://github.com/OutlitAI/outlit-agent-skills
+
+## Source Of Truth
+
+The hosted MCP server is part of Outlit's platform infrastructure. Public metadata should point to:
+
+- Runtime and OAuth metadata on `mcp.outlit.ai`
+- Product and agent discovery metadata on `outlit.ai`
+- API contract metadata on `docs.outlit.ai`
+
+Do not copy server cards, OpenAPI specs, or OAuth metadata into this repository as independent sources of truth.
