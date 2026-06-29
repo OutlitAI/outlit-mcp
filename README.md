@@ -30,6 +30,7 @@ Remote MCP clients authenticate with OAuth. The MCP OAuth metadata is published 
 - Agentic Resource Discovery catalog: https://outlit.ai/.well-known/ai-catalog.json
 - API catalog: https://outlit.ai/.well-known/api-catalog
 - OpenAPI spec: https://docs.outlit.ai/openapi.json
+- Official MCP Registry listing: https://registry.modelcontextprotocol.io/v0.1/servers?search=ai.outlit/outlit
 - MCP docs: https://docs.outlit.ai/ai-integrations/mcp
 - LLM resource index: https://outlit.ai/llms.txt
 
@@ -57,12 +58,21 @@ The server also exposes read-only SQL views for `activity`, `customers`, `users`
 
 ## Skills
 
-Install the official Outlit skills from the public skills repository:
+Install the official Outlit skills through the Outlit CLI:
 
 ```bash
-npx skills add OutlitAI/outlit-agent-skills --skill outlit --skill outlit-sdk
+outlit setup skills
 ```
 
+Or install directly from the public skills repository:
+
+```bash
+npx -y skills add https://github.com/OutlitAI/outlit-agent-skills -g
+```
+
+- First-party skill index: https://outlit.ai/.well-known/skills/index.json
+- First-party Outlit skill: https://outlit.ai/.well-known/skills/outlit/SKILL.md
+- First-party Outlit SDK skill: https://outlit.ai/.well-known/skills/outlit-sdk/SKILL.md
 - Outlit skill: https://skills.sh/outlitai/outlit-agent-skills/outlit
 - Outlit SDK skill: https://skills.sh/outlitai/outlit-agent-skills/outlit-sdk
 - Skills source: https://github.com/OutlitAI/outlit-agent-skills
