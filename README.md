@@ -18,10 +18,12 @@ The shared discovery endpoint is:
 https://mcp.outlit.ai/mcp
 ```
 
-Remote MCP clients authenticate with OAuth. The MCP OAuth metadata is published at:
+Customer-intelligence tools use OAuth in remote MCP clients. The MCP OAuth metadata is published at:
 
 - Protected resource metadata: https://mcp.outlit.ai/.well-known/oauth-protected-resource/mcp
 - Authorization server metadata: https://clerk.outlit.ai/.well-known/oauth-authorization-server
+
+API-key authenticated MCP clients can also access selected platform configuration tools for agents, automations, signals, destinations, workspace settings, and identity merge suggestions. Those tools require scoped API keys and are documented in the canonical MCP and Platform Actions docs.
 
 ## Discovery
 
@@ -32,6 +34,7 @@ Remote MCP clients authenticate with OAuth. The MCP OAuth metadata is published 
 - OpenAPI spec: https://docs.outlit.ai/openapi.json
 - Official MCP Registry listing: https://registry.modelcontextprotocol.io/v0.1/servers?search=ai.outlit/outlit
 - MCP docs: https://docs.outlit.ai/ai-integrations/mcp
+- Platform Actions docs: https://docs.outlit.ai/ai-integrations/platform-actions
 - LLM resource index: https://outlit.ai/llms.txt
 
 The official MCP Registry package name is `ai.outlit/outlit`.
