@@ -18,7 +18,7 @@ The shared discovery endpoint is:
 https://mcp.outlit.ai/mcp
 ```
 
-Remote MCP clients authenticate with OAuth. The MCP OAuth metadata is published at:
+Remote MCP clients authenticate with OAuth for customer-intelligence tools. API-key auth remains available for legacy/headless clients and for scoped platform configuration tools documented in the MCP guide. The MCP OAuth metadata is published at:
 
 - Protected resource metadata: https://mcp.outlit.ai/.well-known/oauth-protected-resource/mcp
 - Authorization server metadata: https://clerk.outlit.ai/.well-known/oauth-authorization-server
@@ -56,9 +56,17 @@ The hosted server exposes customer context tools for agents, including:
 
 The server also exposes read-only SQL views for `activity`, `customers`, `users`, and `revenue`.
 
+API-key authenticated platform configuration tools are documented in the [MCP guide](https://docs.outlit.ai/ai-integrations/mcp) and the canonical [OpenAPI spec](https://docs.outlit.ai/openapi.json). This repository intentionally does not duplicate those tool contracts.
+
 ## Skills
 
-Install the official Outlit skills through the Outlit CLI:
+For coding agents, start with the Outlit CLI onboarding flow:
+
+```bash
+outlit onboard --agent codex --json
+```
+
+To install only the official Outlit skills, use:
 
 ```bash
 outlit setup skills
