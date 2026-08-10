@@ -18,12 +18,12 @@ The shared discovery endpoint is:
 https://mcp.outlit.ai/mcp
 ```
 
-Customer-intelligence tools authenticate with OAuth in remote MCP clients. The MCP OAuth metadata is published at:
+The remote MCP endpoint supports OAuth and scoped Outlit API keys. OAuth is the preferred setup for interactive clients; both methods expose the same public tool catalog, while each call remains limited by the signed-in member's current permissions or the API key's explicit grants. The MCP OAuth metadata is published at:
 
 - Protected resource metadata: https://mcp.outlit.ai/.well-known/oauth-protected-resource/mcp
 - Authorization server metadata: https://clerk.outlit.ai/.well-known/oauth-authorization-server
 
-Scoped workspace API keys remain supported for manual/headless clients and for platform configuration tools that require explicit `agents:*` or `identity:*` scopes.
+Scoped workspace API keys remain supported as bearer credentials for manual or headless clients that cannot complete OAuth.
 
 ## Discovery
 
@@ -34,32 +34,25 @@ Scoped workspace API keys remain supported for manual/headless clients and for p
 - OpenAPI spec: https://docs.outlit.ai/openapi.json
 - Official MCP Registry listing: https://registry.modelcontextprotocol.io/v0.1/servers?search=ai.outlit/outlit
 - MCP docs: https://docs.outlit.ai/ai-integrations/mcp
-- Platform Actions docs: https://docs.outlit.ai/ai-integrations/platform-actions
+- Platform Capabilities docs: https://docs.outlit.ai/ai-integrations/platform-actions
 - LLM resource index: https://outlit.ai/llms.txt
 
 The official MCP Registry package name is `ai.outlit/outlit`.
 
 ## Tools
 
-The hosted server exposes customer context tools for agents, including:
+The hosted server exposes the public capability catalog published in the canonical server card and documentation. Current capability families cover:
 
-- `outlit_list_customers`
-- `outlit_list_users`
-- `outlit_list_workspace_users`
-- `outlit_get_customer`
-- `outlit_get_timeline`
-- `outlit_search_customer_context`
-- `outlit_list_facts`
-- `outlit_get_fact`
-- `outlit_get_source`
-- `outlit_list_sources`
-- `outlit_query`
-- `outlit_schema`
-- `outlit_send_notification`
+- Customer and user discovery, profiles, timelines, facts, sources, and semantic context search
+- Customer ownership and collaboration access
+- Read-only SQL analytics and schema inspection
+- Safe destination lifecycle management
+- Integration discovery, browser setup, and setup/sync status
+- Customer activation, workspace settings, and Behavior Metric discovery and creation
 
 The server also exposes read-only SQL views for `activity`, `customers`, `users`, and `revenue`.
 
-The hosted server also exposes platform configuration tool families for agents, automations, signals, destinations, selected settings, and identity merge suggestions. Keep the detailed platform tool catalog in the canonical MCP and Platform Actions docs rather than copying it here.
+Keep detailed tool names, descriptions, and schemas in the canonical server card, MCP docs, and Platform Capabilities docs rather than copying them here.
 
 ## Skills
 
@@ -72,7 +65,7 @@ outlit setup skills
 Or install directly from the public skills repository:
 
 ```bash
-npx -y skills add https://github.com/OutlitAI/outlit-agent-skills -g
+npx -y skills add https://github.com/OutlitAI/outlit-agent-skills --skill outlit -g
 ```
 
 - First-party skill index: https://outlit.ai/.well-known/skills/index.json
