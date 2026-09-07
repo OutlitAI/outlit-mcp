@@ -43,12 +43,12 @@ The official MCP Registry package name is `ai.outlit/outlit`.
 
 The hosted server exposes the public capability catalog published in the canonical server card and documentation. Current capability families cover:
 
-- Customer and user discovery, profiles, timelines, facts, sources, and semantic context search
-- Customer ownership and collaboration access
+- Customer and user discovery, profiles, relationships, timelines, facts, sources, and semantic context search
+- Customer ownership, collaboration access, and attention items
 - Read-only SQL analytics and schema inspection
 - Safe destination lifecycle management
 - Integration discovery, browser setup, and setup/sync status
-- Customer activation, workspace settings, and Behavior Metric discovery and creation
+- Customer activation, workspace settings, and Feature listing, creation, archiving, and per-customer usage
 
 The server also exposes read-only SQL views for `activity`, `customers`, `users`, and `revenue`.
 
@@ -65,15 +65,15 @@ outlit setup skills
 Or install directly from the public skills repository:
 
 ```bash
-npx -y skills add https://github.com/OutlitAI/outlit-agent-skills --skill outlit -g
+npx -y skills add OutlitAI/skills --skill outlit -g
 ```
 
 - First-party skill index: https://outlit.ai/.well-known/skills/index.json
 - First-party Outlit skill: https://outlit.ai/.well-known/skills/outlit/SKILL.md
 - First-party Outlit SDK skill: https://outlit.ai/.well-known/skills/outlit-sdk/SKILL.md
-- Outlit skill: https://skills.sh/outlitai/outlit-agent-skills/outlit
-- Outlit SDK skill: https://skills.sh/outlitai/outlit-agent-skills/outlit-sdk
-- Skills source: https://github.com/OutlitAI/outlit-agent-skills
+- Outlit skill: https://skills.sh/outlitai/skills/outlit
+- Outlit SDK skill: https://skills.sh/outlitai/skills/outlit-sdk
+- Skills source: https://github.com/OutlitAI/skills
 
 ## Source Of Truth
 
