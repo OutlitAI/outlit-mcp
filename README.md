@@ -44,7 +44,7 @@ The official MCP Registry package name is `ai.outlit/outlit`.
 The hosted server exposes the public capability catalog published in the canonical server card and documentation. Current capability families cover:
 
 - Customer and user discovery, profiles, relationships, timelines, facts, sources, semantic context search, and customer credit metrics
-- Customer ownership, collaboration access, attention items, identity diagnostics, merge suggestions, and customer merges
+- Customer ownership, collaboration access, attention items, identity diagnostics, merge suggestions, customer merges, and scoped identity repairs
 - Read-only SQL analytics and schema inspection
 - Safe destination lifecycle management
 - Integration discovery, browser setup, and setup/sync status
