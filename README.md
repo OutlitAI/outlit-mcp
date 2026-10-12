@@ -47,6 +47,7 @@ The hosted server exposes the public capability catalog published in the canonic
 - Customer ownership, collaboration access, attention items, identity diagnostics, merge suggestions, customer merges, and scoped identity repairs
 - Read-only SQL analytics and schema inspection
 - Safe destination lifecycle management
+- Product feedback submission
 - Integration discovery, browser setup, and setup/sync status
 - Customer activation, workspace settings, and Feature listing, creation, archiving, and per-customer usage
 
