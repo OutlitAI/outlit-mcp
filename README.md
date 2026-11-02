@@ -36,6 +36,7 @@ Scoped workspace API keys remain supported as bearer credentials for manual or h
 - MCP docs: https://docs.outlit.ai/ai-integrations/mcp
 - Platform Capabilities docs: https://docs.outlit.ai/ai-integrations/platform-actions
 - LLM resource index: https://outlit.ai/llms.txt
+- ChatGPT plugin package: [plugin/](plugin/)
 
 The official MCP Registry package name is `ai.outlit/outlit`.
 

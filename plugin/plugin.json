@@ -1,0 +1,117 @@
+{
+  "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
+  "name": "outlit",
+  "version": "1.0.0",
+  "description": "Customer context from your Outlit workspace: accounts, timelines, facts with sources, attention items and read-only SQL, plus a small set of workspace changes.",
+  "author": {
+    "name": "Outlit",
+    "url": "https://www.outlit.ai"
+  },
+  "homepage": "https://www.outlit.ai",
+  "repository": "https://github.com/OutlitAI/outlit-mcp",
+  "license": "MIT",
+  "keywords": [
+    "customer-success",
+    "crm",
+    "customer-intelligence",
+    "analytics"
+  ],
+  "extensions": {
+    "com.openai": {
+      "interface": {
+        "displayName": "Outlit",
+        "shortDescription": "Customer context for CS teams",
+        "longDescription": "Outlit keeps a current record of every customer account. It connects your CRM, support desk, billing, product analytics, call recorder, email, calendar and Slack, and resolves them into one profile per company.\n\nThis connector lets the assistant read that record and make a small set of workspace changes.\n\nAsk about:\n- Customers by billing status, activity recency, revenue or name, with MRR for each\n- What happened with an account recently, across calls, emails, tickets, meetings and product events\n- Facts Outlit has gathered about a customer, such as renewal dates, stakeholders and open issues, each with its source\n- Accounts that need attention now, and the reason for each\n- Ad hoc numbers, answered with read-only SQL over activity, customer, user and revenue views\n\nChanges it can make:\n- Customer ownership and per-customer access\n- Slack channels that receive Outlit alerts\n- The activation event, tracked features and workspace defaults\n- Merges and repairs for duplicate customer records\n\nMerges, archives and access removal carry destructiveHint, so clients that honor MCP annotations ask before running them.\n\nYou need an existing Outlit workspace to connect. Each call runs with the signed-in member's permissions, so the assistant sees only what that member can see in Outlit.",
+        "developerName": "Outlit",
+        "category": "Productivity",
+        "capabilities": [
+          "Read",
+          "Write"
+        ],
+        "websiteURL": "https://www.outlit.ai",
+        "supportURL": "https://www.outlit.ai/support",
+        "privacyPolicyURL": "https://www.outlit.ai/privacy",
+        "termsOfServiceURL": "https://www.outlit.ai/terms",
+        "defaultPrompt": [
+          "Which customers need attention this week, and why?",
+          "Which paying customers haven't been active in the last 14 days? Sort by MRR.",
+          "Summarize the last 30 days with our largest customer by MRR."
+        ],
+        "brandColor": "#000000",
+        "brandColorDark": "#FFFFFF",
+        "composerIcon": "./assets/outlit-icon-512.png",
+        "logo": "./assets/outlit-icon-512.png"
+      },
+      "review": {
+        "test_cases": {
+          "positive": [
+            {
+              "description": "Lists the accounts that need attention, with reasons.",
+              "prompt": "Which customers need attention right now, and why?",
+              "tools_triggered": [
+                "outlit_list_attention_items"
+              ],
+              "expected_behavior": "Returns open attention items, each with the customer, priority, ARR and a one-line reason."
+            },
+            {
+              "description": "Summarizes one account's recent history across sources.",
+              "prompt": "Summarize what happened with our largest customer by MRR in the last 30 days.",
+              "tools_triggered": [
+                "outlit_list_customers",
+                "outlit_get_timeline"
+              ],
+              "expected_behavior": "Finds the top customer by MRR, then gives a dated summary of its calls, emails, tickets and meetings from the last 30 days."
+            },
+            {
+              "description": "Filters customers by billing status and activity recency.",
+              "prompt": "Which paying customers haven't been active in the last 14 days? Sort by MRR.",
+              "tools_triggered": [
+                "outlit_list_customers"
+              ],
+              "expected_behavior": "Returns paying customers with no activity in 14 days, sorted by MRR, with MRR shown in dollars converted from cents."
+            },
+            {
+              "description": "Searches customer conversations and cites sources.",
+              "prompt": "What have our customers said about pricing in recent calls? Cite the sources.",
+              "tools_triggered": [
+                "outlit_search_customer_context",
+                "outlit_get_source"
+              ],
+              "expected_behavior": "Returns matching excerpts, each labeled with its customer, source type (call or email) and date."
+            },
+            {
+              "description": "Answers an ad hoc metric with read-only SQL.",
+              "prompt": "What is our total MRR by plan?",
+              "tools_triggered": [
+                "outlit_schema",
+                "outlit_query"
+              ],
+              "expected_behavior": "Runs a read-only SELECT on the customers view and returns a table of plans with summed MRR."
+            }
+          ],
+          "negative": [
+            {
+              "description": "General question unrelated to customer data.",
+              "prompt": "What's the weather in Paris tomorrow?",
+              "expected_behavior": "Answers without calling any Outlit tool."
+            },
+            {
+              "description": "Concept explanation that needs no workspace data.",
+              "prompt": "Explain what net revenue retention means.",
+              "expected_behavior": "Gives a general explanation without calling any Outlit tool."
+            },
+            {
+              "description": "Bulk destructive request the app does not support.",
+              "prompt": "Delete every customer in my Outlit workspace.",
+              "expected_behavior": "Says Outlit has no bulk delete and calls no write tool, including outlit_merge_customers and outlit_archive_destination."
+            }
+          ]
+        },
+        "demo_recording_url": "TODO-replace-with-reviewer-accessible-demo-video-url"
+      },
+      "publication": {
+        "release_notes": "First release: Outlit's hosted MCP server with OAuth sign-in, customer lookups, timelines, sourced facts, attention items, read-only SQL and annotated workspace actions."
+      }
+    }
+  }
+}
