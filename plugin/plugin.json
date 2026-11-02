@@ -33,7 +33,7 @@
         "privacyPolicyURL": "https://www.outlit.ai/privacy",
         "termsOfServiceURL": "https://www.outlit.ai/terms",
         "defaultPrompt": [
-          "Which customers need attention this week, and why?",
+          "Which customers are past due on billing, and what's their MRR?",
           "Which paying customers haven't been active in the last 14 days? Sort by MRR.",
           "Summarize the last 30 days with our largest customer by MRR."
         ],
@@ -46,12 +46,12 @@
         "test_cases": {
           "positive": [
             {
-              "description": "Lists the accounts that need attention, with reasons.",
-              "prompt": "Which customers need attention right now, and why?",
+              "description": "Lists past-due customers with their MRR",
+              "prompt": "Which customers are past due on billing, and what's their MRR?",
               "tools_triggered": [
-                "outlit_list_attention_items"
+                "outlit_list_customers"
               ],
-              "expected_behavior": "Returns open attention items, each with the customer, priority, ARR and a one-line reason."
+              "expected_behavior": "Calls outlit_list_customers with billingStatus PAST_DUE and returns those customers with MRR converted from cents to dollars."
             },
             {
               "description": "Summarizes one account's recent history across sources.",
