@@ -2,7 +2,7 @@
   "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
   "name": "outlit",
   "version": "1.0.0",
-  "description": "Customer context from your Outlit workspace: accounts, timelines, facts with sources, attention items and read-only SQL, plus a small set of workspace changes.",
+  "description": "Ask about any customer and get the whole account. Outlit matches each person and company across your CRM, billing, support, calls, email and product data, so answers don't miss half the history.",
   "author": {
     "name": "Outlit",
     "url": "https://www.outlit.ai"
@@ -20,8 +20,8 @@
     "com.openai": {
       "interface": {
         "displayName": "Outlit",
-        "shortDescription": "Customer context for CS teams",
-        "longDescription": "Outlit keeps a current record of every customer account. It connects your CRM, support desk, billing, product analytics, call recorder, email, calendar and Slack, and resolves them into one profile per company.\n\nThis connector lets the assistant read that record and make a small set of workspace changes.\n\nAsk about:\n- Customers by billing status, activity recency, revenue or name, with MRR for each\n- What happened with an account recently, across calls, emails, tickets, meetings and product events\n- Facts Outlit has gathered about a customer, such as stakeholders and open issues, each with its source\n- Accounts that need attention now, and the reason for each\n- Ad hoc numbers, answered with read-only SQL over activity, customer, user and revenue views\n\nChanges it can make:\n- Customer ownership and per-customer access\n- Slack channels that receive Outlit alerts\n- The activation event, tracked features and workspace defaults\n- Merges of duplicate customer records\n\nMerges, archives and access removal carry destructiveHint, so clients that honor MCP annotations ask before running them.\n\nYou need an existing Outlit workspace to connect. Each call runs with the signed-in member's permissions, so the assistant sees only what that member can see in Outlit.",
+        "shortDescription": "Every customer, one record",
+        "longDescription": "Connect your CRM, billing and support tools to an assistant one at a time and the answers don't line up: the same company shows up under different names, emails and IDs in each tool, so revenue, tickets and calls never get joined. Outlit does that matching first. It resolves every person and company across your tools into one record, then lets the assistant read it.\n\nUse Outlit to:\n- Prep for a customer call with the last 30 days of emails, meetings, tickets and product activity, with links to the sources\n- See which customers are past due or going quiet, sorted by MRR\n- Answer \"what did this account say about pricing?\" across calls, email and Slack\n- Pull ad hoc numbers with read-only SQL over activity, customer, user and revenue views\n\nChanges it can make:\n- Customer ownership and per-customer access\n- Slack channels that receive Outlit alerts\n- The activation event, tracked features and workspace defaults\n- Merges of duplicate customer records\n\nMerges, archives and access removal carry destructiveHint, so clients that honor MCP annotations ask before running them.\n\nYou need an existing Outlit workspace to connect. Each call runs with the signed-in member's permissions, so the assistant sees only what that member can see in Outlit.",
         "developerName": "Outlit",
         "category": "Productivity",
         "capabilities": [
