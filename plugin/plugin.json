@@ -48,44 +48,31 @@
             {
               "description": "Lists past-due customers with their MRR",
               "prompt": "Which customers are past due on billing, and what's their MRR?",
-              "tools_triggered": [
-                "outlit_list_customers"
-              ],
+              "tools_triggered": "outlit_list_customers",
               "expected_behavior": "Calls outlit_list_customers with billingStatus PAST_DUE and returns those customers with MRR converted from cents to dollars."
             },
             {
               "description": "Summarizes one account's recent history across sources.",
               "prompt": "Summarize what happened with our largest customer by MRR in the last 30 days.",
-              "tools_triggered": [
-                "outlit_list_customers",
-                "outlit_get_timeline"
-              ],
+              "tools_triggered": "outlit_list_customers, outlit_get_timeline",
               "expected_behavior": "Finds the top customer by MRR, then gives a dated summary of its calls, emails, tickets and meetings from the last 30 days."
             },
             {
               "description": "Filters customers by billing status and activity recency.",
               "prompt": "Which paying customers haven't been active in the last 14 days? Sort by MRR.",
-              "tools_triggered": [
-                "outlit_list_customers"
-              ],
+              "tools_triggered": "outlit_list_customers",
               "expected_behavior": "Returns paying customers with no activity in 14 days, sorted by MRR, with MRR shown in dollars converted from cents."
             },
             {
               "description": "Searches customer conversations and cites sources.",
               "prompt": "What have our customers said about pricing in recent calls? Cite the sources.",
-              "tools_triggered": [
-                "outlit_search_customer_context",
-                "outlit_get_source"
-              ],
+              "tools_triggered": "outlit_search_customer_context, outlit_get_source",
               "expected_behavior": "Returns matching excerpts, each labeled with its customer, source type (call or email) and date."
             },
             {
               "description": "Answers an ad hoc metric with read-only SQL.",
               "prompt": "What is our total MRR by plan?",
-              "tools_triggered": [
-                "outlit_schema",
-                "outlit_query"
-              ],
+              "tools_triggered": "outlit_schema, outlit_query",
               "expected_behavior": "Runs a read-only SELECT on the customers view and returns a table of plans with summed MRR."
             }
           ],
