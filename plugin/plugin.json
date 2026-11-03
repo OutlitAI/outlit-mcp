@@ -94,7 +94,7 @@
             }
           ]
         },
-        "demo_recording_url": "TODO-replace-with-reviewer-accessible-demo-video-url"
+        "demo_recording_url": "https://github.com/OutlitAI/outlit-mcp/blob/main/demo/outlit-chatgpt-demo.mp4"
       },
       "publication": {
         "release_notes": "First release: Outlit's hosted MCP server with OAuth sign-in, customer lookups, timelines, sourced facts, attention items, read-only SQL and annotated workspace actions."
