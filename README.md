@@ -25,6 +25,10 @@ The remote MCP endpoint supports OAuth and scoped Outlit API keys. OAuth is the 
 
 Scoped workspace API keys remain supported as bearer credentials for manual or headless clients that cannot complete OAuth.
 
+## Cursor
+
+The Cursor plugin in [.cursor-plugin/plugin.json](.cursor-plugin/plugin.json) adds the hosted server at `https://mcp.outlit.ai/mcp`. After installing it, open Cursor Settings > MCP, choose Connect on the Outlit server, sign in with your Outlit account and choose the workspace to connect. No API key or configuration variable is needed; each call runs with the signed-in member's permissions.
+
 ## Discovery
 
 - MCP server card: https://mcp.outlit.ai/.well-known/mcp/server-card.json
@@ -37,6 +41,7 @@ Scoped workspace API keys remain supported as bearer credentials for manual or h
 - Platform Capabilities docs: https://docs.outlit.ai/ai-integrations/platform-actions
 - LLM resource index: https://outlit.ai/llms.txt
 - ChatGPT plugin package: [plugin/](plugin/)
+- Cursor plugin manifest: [.cursor-plugin/plugin.json](.cursor-plugin/plugin.json)
 
 The official MCP Registry package name is `ai.outlit/outlit`.
 

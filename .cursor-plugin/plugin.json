@@ -1,0 +1,23 @@
+{
+  "name": "outlit",
+  "version": "1.0.1",
+  "description": "Ask about any customer and get the whole account. Outlit matches each person and company across your CRM, billing, support, calls, email and product data, so answers don't miss half the history.",
+  "author": {
+    "name": "Outlit"
+  },
+  "homepage": "https://www.outlit.ai",
+  "repository": "https://github.com/OutlitAI/outlit-mcp",
+  "license": "MIT",
+  "keywords": [
+    "customer-success",
+    "crm",
+    "customer-intelligence",
+    "analytics"
+  ],
+  "logo": "plugin/assets/outlit-icon-512.png",
+  "mcpServers": {
+    "outlit": {
+      "url": "https://mcp.outlit.ai/mcp"
+    }
+  }
+}
