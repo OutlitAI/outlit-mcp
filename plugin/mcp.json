@@ -13,6 +13,7 @@
             },
             "registrationUrl": "https://clerk.outlit.ai/oauth/register",
             "baseScopes": [
+              "openid",
               "profile",
               "email",
               "user:org:read",
