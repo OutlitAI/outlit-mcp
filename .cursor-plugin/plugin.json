@@ -1,7 +1,7 @@
 {
   "name": "outlit",
-  "version": "1.0.1",
-  "description": "Ask about any customer and get the whole account. Outlit matches each person and company across your CRM, billing, support, calls, email and product data, so answers don't miss half the history.",
+  "version": "1.0.2",
+  "description": "Ask about any customer and get the whole account in one clean record, matched across your CRM, billing, support, calls, email and product data. Uses about 3x fewer tokens than calling each tool.",
   "author": {
     "name": "Outlit"
   },
