@@ -16,4 +16,4 @@ This repository is a public discovery pointer for the hosted Outlit remote MCP s
 - Do not copy canonical server cards, OpenAPI specs, or OAuth metadata into this repo.
 - Link to canonical metadata on `mcp.outlit.ai`, `outlit.ai`, and `docs.outlit.ai`.
 - Keep language aligned with Outlit's clean server name: `Outlit`.
-- If discovery metadata changes, update the canonical surfaces in the marketing/core repos first, then update this README if needed.
+- If discovery metadata changes, update the canonical surfaces in the marketing/core repos first, then update this README if needed. Core's `docs/store-listings/mcp-metadata.md` lists every surface, including `plugin/plugin.json`, `.cursor-plugin/plugin.json`, the official MCP Registry and hand-submitted directories.
