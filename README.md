@@ -1,6 +1,6 @@
 # Outlit MCP
 
-Outlit is the real-time understanding of every customer, the infrastructure agents use to automate customer operations.
+Ask about any customer and get the whole account in one clean record, matched across your CRM, billing, support, calls, email and product data.
 
 This repository is the public discovery pointer for the hosted Outlit remote MCP server. It does not contain the server implementation. Canonical runtime metadata is served from Outlit-owned domains so MCP clients, registries, and crawlers have one source of truth.
 
@@ -23,7 +23,7 @@ The remote MCP endpoint supports OAuth and scoped Outlit API keys. OAuth is the 
 - Protected resource metadata: https://mcp.outlit.ai/.well-known/oauth-protected-resource/mcp
 - Authorization server metadata: https://clerk.outlit.ai/.well-known/oauth-authorization-server
 
-Scoped workspace API keys remain supported as bearer credentials for manual or headless clients that cannot complete OAuth.
+Scoped workspace API keys remain supported as bearer credentials for manual or headless clients that cannot complete OAuth. Only OAuth connections belong to a person, so only they can subscribe to that person's Outlit Inbox and be woken when a new item lands.
 
 ## Cursor
 
@@ -33,13 +33,13 @@ The Cursor plugin in [.cursor-plugin/plugin.json](.cursor-plugin/plugin.json) ad
 
 - MCP server card: https://mcp.outlit.ai/.well-known/mcp/server-card.json
 - MCP registry metadata: https://mcp.outlit.ai/.well-known/mcp/server.json
-- Agentic Resource Discovery catalog: https://outlit.ai/.well-known/ai-catalog.json
-- API catalog: https://outlit.ai/.well-known/api-catalog
+- Agentic Resource Discovery catalog: https://www.outlit.ai/.well-known/ai-catalog.json
+- API catalog: https://www.outlit.ai/.well-known/api-catalog
 - OpenAPI spec: https://docs.outlit.ai/openapi.json
 - Official MCP Registry listing: https://registry.modelcontextprotocol.io/v0.1/servers?search=ai.outlit/outlit
 - MCP docs: https://docs.outlit.ai/ai-integrations/mcp
 - Platform Capabilities docs: https://docs.outlit.ai/ai-integrations/platform-actions
-- LLM resource index: https://outlit.ai/llms.txt
+- LLM resource index: https://www.outlit.ai/llms.txt
 - ChatGPT plugin package: [plugin/](plugin/)
 - Cursor plugin manifest: [.cursor-plugin/plugin.json](.cursor-plugin/plugin.json)
 
@@ -71,15 +71,15 @@ outlit setup skills
 Or install directly from the public skills repository:
 
 ```bash
-npx -y skills add https://github.com/OutlitAI/outlit-agent-skills --skill outlit -g
+npx -y skills add https://github.com/OutlitAI/skills --skill outlit -g
 ```
 
-- First-party skill index: https://outlit.ai/.well-known/skills/index.json
-- First-party Outlit skill: https://outlit.ai/.well-known/skills/outlit/SKILL.md
-- First-party Outlit SDK skill: https://outlit.ai/.well-known/skills/outlit-sdk/SKILL.md
-- Outlit skill: https://skills.sh/outlitai/outlit-agent-skills/outlit
-- Outlit SDK skill: https://skills.sh/outlitai/outlit-agent-skills/outlit-sdk
-- Skills source: https://github.com/OutlitAI/outlit-agent-skills
+- First-party skill index: https://www.outlit.ai/.well-known/skills/index.json
+- First-party Outlit skill: https://www.outlit.ai/.well-known/skills/outlit/SKILL.md
+- First-party Outlit SDK skill: https://www.outlit.ai/.well-known/skills/outlit-sdk/SKILL.md
+- Outlit skill: https://www.skills.sh/outlitai/skills/outlit
+- Outlit SDK skill: https://www.skills.sh/outlitai/skills/outlit-sdk
+- Skills source: https://github.com/OutlitAI/skills
 
 ## Source Of Truth
 
