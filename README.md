@@ -1,6 +1,6 @@
 # Outlit MCP
 
-Ask about any customer and get the whole account in one clean record, matched across your CRM, billing, support, calls, email and product data.
+Ask about any customer and get the whole account in one clean record, matched across your CRM, billing, support, calls, email and product data. Uses about 3x fewer tokens than calling each tool.
 
 This repository is the public discovery pointer for the hosted Outlit remote MCP server. It does not contain the server implementation. Canonical runtime metadata is served from Outlit-owned domains so MCP clients, registries, and crawlers have one source of truth.
 
@@ -49,12 +49,16 @@ The official MCP Registry package name is `ai.outlit/outlit`.
 
 The hosted server exposes the public capability catalog published in the canonical server card and documentation. Current capability families cover:
 
-- Customer and user discovery, profiles, timelines, facts, sources, and semantic context search
+- Customer and user discovery, profiles, relationships, timelines, facts, sources, and semantic context search
 - Customer ownership and collaboration access
+- Inbox task discovery and actions
 - Read-only SQL analytics and schema inspection
 - Safe destination lifecycle management
+- Toolset discovery, on-demand tool definitions, and agent guidance
 - Integration discovery, browser setup, and setup/sync status
-- Customer activation, workspace settings, and Behavior Metric discovery and creation
+- Customer activation, workspace settings, and Feature lifecycle management
+- Identity diagnostics, merge suggestions, and customer merges
+- Product feedback submission
 
 The server also exposes read-only SQL views for `activity`, `customers`, `users`, and `revenue`.
 
@@ -62,16 +66,22 @@ Keep detailed tool names, descriptions, and schemas in the canonical server card
 
 ## Skills
 
-Install the official Outlit skills through the Outlit CLI:
+Print the current Outlit skill from the CLI without installing it:
 
 ```bash
-outlit setup skills
+outlit --skill
 ```
 
-Or install directly from the public skills repository:
+MCP clients can call `outlit_get_skill` once per session for the same guide. To install a small discovery stub for local agents, run:
 
 ```bash
-npx -y skills add https://github.com/OutlitAI/skills --skill outlit -g
+outlit setup --yes
+```
+
+The optional SDK tracking skill remains available from the public skills repository:
+
+```bash
+npx -y skills add OutlitAI/skills --skill outlit-sdk -g
 ```
 
 - First-party skill index: https://www.outlit.ai/.well-known/skills/index.json
